@@ -1,0 +1,370 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; padding: 0; }
+
+/* ═══════════════════════════════════════════════════
+   GEN Z EDITORIAL POSTER DESIGN SYSTEM
+   Full-bleed · massive type · objects float freely
+   References: Classico, La House Feria, Coffee Rave
+   ═══════════════════════════════════════════════════ */
+
+:root {
+  --red:    #E63329;
+  --orange: #FF6B35;
+  --yellow: #F5E642;
+  --blue:   #4361EE;
+  --ink:    #1A1108;
+  --cream:  #F2EBE0;
+  --white:  #FFFCF7;
+  --pink:   #F2A7C3;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Grain noise texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+::selection { background: var(--red); color: #fff; }
+::-webkit-scrollbar { width: 0; }
+
+/* ── Typography ── */
+.font-display { font-family: 'Space Grotesk', sans-serif; }
+.font-body    { font-family: 'Syne', sans-serif; }
+.font-hand    { font-family: 'Caveat', cursive; }
+
+/* ── Full-bleed poster page ── */
+.page {
+  position: relative;
+  min-height: 100dvh;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* ── Doodle floaters ── */
+.sticker {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  will-change: transform;
+  /* Retro 16fps paper-scrap feel via image-rendering */
+  image-rendering: pixelated;
+}
+
+/* ── Retro 16fps stepped animation helpers ── */
+/* Wrap any motion in .retro-anim to get choppy paper-scrap feel */
+@keyframes retro-float {
+  0%   { transform: translateY(0px) rotate(-4deg); }
+  6%   { transform: translateY(0px) rotate(-4deg); }
+  7%   { transform: translateY(-3px) rotate(-2deg); }
+  13%  { transform: translateY(-3px) rotate(-2deg); }
+  14%  { transform: translateY(-5px) rotate(1deg); }
+  20%  { transform: translateY(-5px) rotate(1deg); }
+  21%  { transform: translateY(-7px) rotate(3deg); }
+  27%  { transform: translateY(-7px) rotate(3deg); }
+  28%  { transform: translateY(-5px) rotate(5deg); }
+  34%  { transform: translateY(-5px) rotate(5deg); }
+  35%  { transform: translateY(-2px) rotate(4deg); }
+  41%  { transform: translateY(-2px) rotate(4deg); }
+  42%  { transform: translateY(1px) rotate(2deg); }
+  48%  { transform: translateY(1px) rotate(2deg); }
+  49%  { transform: translateY(3px) rotate(0deg); }
+  55%  { transform: translateY(3px) rotate(0deg); }
+  56%  { transform: translateY(5px) rotate(-2deg); }
+  62%  { transform: translateY(5px) rotate(-2deg); }
+  63%  { transform: translateY(6px) rotate(-4deg); }
+  69%  { transform: translateY(6px) rotate(-4deg); }
+  70%  { transform: translateY(4px) rotate(-5deg); }
+  76%  { transform: translateY(4px) rotate(-5deg); }
+  77%  { transform: translateY(2px) rotate(-4deg); }
+  83%  { transform: translateY(2px) rotate(-4deg); }
+  84%  { transform: translateY(-1px) rotate(-4deg); }
+  90%  { transform: translateY(-1px) rotate(-4deg); }
+  91%  { transform: translateY(-3px) rotate(-4deg); }
+  97%  { transform: translateY(-3px) rotate(-4deg); }
+  100% { transform: translateY(0px) rotate(-4deg); }
+}
+
+@keyframes retro-spin {
+  0%   { transform: rotate(0deg); }
+  6%   { transform: rotate(0deg); }
+  7%   { transform: rotate(22deg); }
+  13%  { transform: rotate(22deg); }
+  14%  { transform: rotate(45deg); }
+  20%  { transform: rotate(45deg); }
+  21%  { transform: rotate(67deg); }
+  27%  { transform: rotate(67deg); }
+  28%  { transform: rotate(90deg); }
+  34%  { transform: rotate(90deg); }
+  35%  { transform: rotate(112deg); }
+  41%  { transform: rotate(112deg); }
+  42%  { transform: rotate(135deg); }
+  48%  { transform: rotate(135deg); }
+  49%  { transform: rotate(157deg); }
+  55%  { transform: rotate(157deg); }
+  56%  { transform: rotate(180deg); }
+  62%  { transform: rotate(180deg); }
+  63%  { transform: rotate(202deg); }
+  69%  { transform: rotate(202deg); }
+  70%  { transform: rotate(225deg); }
+  76%  { transform: rotate(225deg); }
+  77%  { transform: rotate(247deg); }
+  83%  { transform: rotate(247deg); }
+  84%  { transform: rotate(270deg); }
+  90%  { transform: rotate(270deg); }
+  91%  { transform: rotate(315deg); }
+  97%  { transform: rotate(315deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes retro-float-alt {
+  0%   { transform: translateY(0px) rotate(8deg); }
+  6%   { transform: translateY(0px) rotate(8deg); }
+  7%   { transform: translateY(2px) rotate(5deg); }
+  13%  { transform: translateY(2px) rotate(5deg); }
+  14%  { transform: translateY(5px) rotate(2deg); }
+  20%  { transform: translateY(5px) rotate(2deg); }
+  21%  { transform: translateY(7px) rotate(-1deg); }
+  27%  { transform: translateY(7px) rotate(-1deg); }
+  28%  { transform: translateY(5px) rotate(-3deg); }
+  34%  { transform: translateY(5px) rotate(-3deg); }
+  35%  { transform: translateY(3px) rotate(-5deg); }
+  41%  { transform: translateY(3px) rotate(-5deg); }
+  42%  { transform: translateY(0px) rotate(-4deg); }
+  48%  { transform: translateY(0px) rotate(-4deg); }
+  49%  { transform: translateY(-3px) rotate(-2deg); }
+  55%  { transform: translateY(-3px) rotate(-2deg); }
+  56%  { transform: translateY(-5px) rotate(1deg); }
+  62%  { transform: translateY(-5px) rotate(1deg); }
+  63%  { transform: translateY(-7px) rotate(4deg); }
+  69%  { transform: translateY(-7px) rotate(4deg); }
+  70%  { transform: translateY(-5px) rotate(6deg); }
+  76%  { transform: translateY(-5px) rotate(6deg); }
+  77%  { transform: translateY(-2px) rotate(8deg); }
+  83%  { transform: translateY(-2px) rotate(8deg); }
+  84%  { transform: translateY(0px) rotate(8deg); }
+  100% { transform: translateY(0px) rotate(8deg); }
+}
+
+.retro-float   { animation: retro-float 4s steps(1) infinite; }
+.retro-float-alt { animation: retro-float-alt 5s steps(1) infinite; }
+.retro-spin    { animation: retro-spin 8s steps(1) infinite; }
+.retro-float-2 { animation: retro-float 6s steps(1) 1.2s infinite; }
+.retro-float-3 { animation: retro-float-alt 3.5s steps(1) 0.6s infinite; }
+
+/* ── Huge display headline ── */
+.hero-type {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  line-height: 0.93;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* ── Small stamp label (like "FRAGILE" box) ── */
+.label-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 2px solid currentColor;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+/* ── Oval pill badge (like "FREE ENTRY") ── */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 6px 18px;
+}
+
+/* ── Bottom color band (like La House footer) ── */
+.bottom-band {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+
+/* ── Tape strip ── */
+.tape {
+  position: absolute;
+  width: 72px;
+  height: 20px;
+  border-radius: 2px;
+  z-index: 20;
+}
+
+/* ── Choice block (date/location) ── */
+.choice-block {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  padding: 1.25rem 1.5rem;
+}
+.choice-block:hover {
+  transform: scale(1.03) rotate(-0.5deg);
+}
+.choice-block.selected {
+  transform: scale(1.02) rotate(-1deg);
+}
+
+/* ── Primary action button ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+.btn-primary:hover  { transform: translateY(-2px); }
+.btn-primary:active { transform: translateY(1px); opacity: 0.9; }
+
+/* ── Ghost button ── */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: transform 0.12s ease;
+}
+.btn-ghost:hover { transform: translateY(-1px); }
+
+/* ── Text input ── */
+.txt-input {
+  width: 100%;
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 12px 14px;
+  border-radius: 4px;
+  border: 2px solid rgba(26, 17, 8, 0.2);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--ink);
+  outline: none;
+  resize: none;
+  transition: border-color 0.15s, background 0.15s;
+  backdrop-filter: blur(4px);
+}
+.txt-input:focus {
+  border-color: var(--ink);
+  background: rgba(255, 255, 255, 0.9);
+}
+.txt-input::placeholder {
+  font-family: 'Caveat', cursive;
+  color: rgba(26, 17, 8, 0.35);
+}
+
+/* ── Progress bar ── */
+.progress-track {
+  height: 8px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.1s linear;
+}
+
+/* ── Bouncing dot loader ── */
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+.dot-1 { animation: bdot 1.2s steps(1) 0.0s infinite; }
+.dot-2 { animation: bdot 1.2s steps(1) 0.3s infinite; }
+.dot-3 { animation: bdot 1.2s steps(1) 0.6s infinite; }
+@keyframes bdot {
+  0%   { transform: translateY(0);     opacity: 0.4; }
+  30%  { transform: translateY(-10px); opacity: 1; }
+  60%  { transform: translateY(0);     opacity: 0.4; }
+  100% { transform: translateY(0);     opacity: 0.4; }
+}
+
+/* ── Highlighted text mark ── */
+.text-highlight {
+  position: relative;
+  display: inline-block;
+}
+.text-highlight::before {
+  content: '';
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  bottom: 2px;
+  top: 2px;
+  background: #E63329;
+  z-index: -1;
+  transform: rotate(-1deg);
+}
+
+/* ── Retro paper texture overlay ── */
+.paper-texture {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 1px,
+      rgba(26,17,8,0.012) 1px,
+      rgba(26,17,8,0.012) 2px
+    );
+}
+
+/* ── Responsive helpers ── */
+@media (max-width: 480px) {
+  .page { padding: 0; }
+}
