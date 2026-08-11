@@ -34,7 +34,7 @@ export default function WhyQuestionnaire({ onYesAja, onBack, onSorry }) {
         style={{ maxWidth: 480, height: '100dvh', padding: '0 1.5rem', margin: '0 auto' }}>
 
         {/* Back button */}
-        <div className="pt-14">
+        <div className="pt-6">
           <button
             onClick={onBack}
             className="font-display font-bold uppercase tracking-widest text-xs"

@@ -57,7 +57,7 @@ export default function DatePicker({ selected, onSelect, onNext, onBack }) {
         style={{ maxWidth: 480, height: '100dvh', padding: '0 1.5rem', margin: '0 auto' }}>
 
         {/* Top — header */}
-        <div className="pt-14">
+        <div className="pt-6">
           <div className="flex items-center justify-between mb-4">
             <button
               onClick={onBack}
@@ -132,7 +132,7 @@ export default function DatePicker({ selected, onSelect, onNext, onBack }) {
         </div>
 
         {/* Bottom */}
-        <div className="pb-8">
+        <div className="pb-6">
           <motion.button
             className="btn-primary w-full"
             style={{

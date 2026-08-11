@@ -58,7 +58,7 @@ export default function FinalPage({ day, location, customNote, onFeedback }) {
         style={{ maxWidth: 480, height: '100dvh', padding: '0 1.5rem', margin: '0 auto' }}>
 
         {/* Top Header */}
-        <div className="pt-12">
+        <div className="pt-6">
           <div className="flex justify-between items-center mb-6">
             <div className="label-box" style={{ color: '#1A1108', borderColor: '#1A1108', fontSize: '0.62rem' }}>
               CONFIRMED
