@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, MotionConfig } from 'framer-motion'
 import { Toaster } from 'react-hot-toast'
 
 import SplashScreen from './components/SplashScreen'
@@ -92,7 +92,8 @@ export default function App() {
   }
 
   return (
-    <div className="relative" style={{ height: '100%', overflow: 'hidden' }}>
+    <MotionConfig reducedMotion="never">
+      <div className="relative" style={{ height: '100%', overflow: 'hidden' }}>
       <Toaster
         position="top-center"
         toastOptions={{
@@ -231,5 +232,6 @@ export default function App() {
         )}
       </AnimatePresence>
     </div>
+    </MotionConfig>
   )
 }
