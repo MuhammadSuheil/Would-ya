@@ -93,8 +93,8 @@ export default function SplashScreen({ onDismiss }) {
 
       {/* Bottom hint */}
       <motion.div
-        className="absolute bottom-8 left-0 right-0 z-5"
-        style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        className="absolute bottom-16 left-0 right-0 z-5"
+        style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: 'env(safe-area-inset-bottom)' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.55, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
