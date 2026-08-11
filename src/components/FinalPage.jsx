@@ -55,7 +55,7 @@ export default function FinalPage({ day, location, customNote, onFeedback }) {
       <PixelDoodles colorOverride="rgba(26,17,8,0.15)" />
 
       <div className="relative z-10 w-full flex flex-col justify-between"
-        style={{ maxWidth: 480, height: '100dvh', padding: '0 1.5rem', margin: '0 auto' }}>
+        style={{ maxWidth: 480, minHeight: '100%', padding: '0 1.5rem', margin: '0 auto' }}>
 
         {/* Top Header */}
         <div className="pt-6">

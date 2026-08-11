@@ -49,7 +49,7 @@ export default function SplashScreen({ onDismiss }) {
 
       {/* Content */}
       <div className="relative z-10 w-full px-6 flex flex-col items-center justify-center text-center pb-12"
-        style={{ maxWidth: 480, height: '100dvh', margin: '0 auto' }}>
+        style={{ maxWidth: 480, minHeight: '100%', margin: '0 auto' }}>
 
         <motion.div
           className="label-box mb-6"

@@ -27,7 +27,7 @@ const WRAP = {
   position: 'absolute',
   inset: 0,
   width: '100%',
-  minHeight: '100dvh',
+  height: '100%',
 }
 
 export default function App() {
@@ -92,7 +92,7 @@ export default function App() {
   }
 
   return (
-    <div className="relative" style={{ minHeight: '100dvh', overflow: 'hidden' }}>
+    <div className="relative" style={{ height: '100%', overflow: 'hidden' }}>
       <Toaster
         position="top-center"
         toastOptions={{

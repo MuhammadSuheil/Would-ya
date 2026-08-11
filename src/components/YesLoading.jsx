@@ -46,7 +46,7 @@ export default function YesLoading({ onComplete }) {
       </div>
 
       <div className="relative z-10 w-full flex flex-col justify-between"
-        style={{ maxWidth: 480, height: '100dvh', padding: '0 1.5rem', margin: '0 auto' }}>
+        style={{ maxWidth: 480, minHeight: '100%', padding: '0 1.5rem', margin: '0 auto' }}>
 
         <div className="flex-1 flex flex-col justify-center">
           {/* Stamp */}
