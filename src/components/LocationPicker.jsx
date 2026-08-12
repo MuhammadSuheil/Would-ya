@@ -119,7 +119,7 @@ export default function LocationPicker({ selected, onSelect, customNote, onCusto
 
           {/* Custom note */}
           <div>
-            <label className="font-hand block mb-2" style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.5)', fontWeight: 600 }}>
+            <label className="font-hand block mb-2" style={{ fontSize: '1rem', color: 'rgba(255, 255, 255, 1)', fontWeight: 600 }}>
               atau ada tambahan lain?
             </label>
             <textarea

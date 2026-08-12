@@ -93,7 +93,7 @@ export default function MainScreen({ onYes, onNoFinal }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.18, duration: 0.62, ease: EASE }}
             >
-              GUESS
+              I HOPE
             </motion.div>
 
             <motion.div
